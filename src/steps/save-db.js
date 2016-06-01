@@ -23,7 +23,7 @@ function buildValuesQuery (weathers) {
             parseInt(weather.temperature),
             parseInt(weather.cloudeness),
             parseInt(weather.humidity),
-            weather.name
+            weather.provincia
         ];
     }, []);
 }

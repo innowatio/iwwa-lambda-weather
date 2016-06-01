@@ -13,28 +13,28 @@ describe("Save weather into DB", () => {
 
     sinon.useFakeTimers();
     
-    before(async () => {
-        await db.query({
-            text: "DELETE FROM weather"
-        });
-    });
+    // before(async () => {
+    //     await db.query({
+    //         text: "DELETE FROM weather"
+    //     });
+    // });
 
-    after(async () => {
-        await db.query({
-            text: "DELETE FROM weather"
-        });
-    });
+    // after(async () => {
+    //     await db.query({
+    //         text: "DELETE FROM weather"
+    //     });
+    // });
 
     it("Save London weathers", async () => {
         const weather = [{
             id: 2172797,
-            name: "London",
+            provincia: "London",
             temperature: 293.25,
             humidity: 60,
             cloudeness: 20
         }, {
             id: 2172797,
-            name: "London",
+            provincia: "London",
             temperature: 223.25,
             humidity: 45,
             cloudeness: 89
