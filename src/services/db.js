@@ -1,12 +1,17 @@
 import PgAsync from "pg-async";
 
-const connectionString = "postgres://postgres:postgres@localhost:5432/innowatio";
+import {
+    DB_USER,
+    DB_PASS,
+    DB_URL,
+    DB_NAME
+} from "../config";
 
 var db;
 
 export default function getClient () {
     if (!db) {
-        db = new PgAsync(connectionString);
+        db = new PgAsync(`postgres://${DB_USER}:${DB_PASS}@${DB_URL}/${DB_NAME}`);
     }
     return db;
 }
