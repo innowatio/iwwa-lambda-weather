@@ -10,13 +10,20 @@ export async function insertWeathers (weathers) {
 
 function buildInsertWeathersQuery (weathers) {
     return weathers.reduce((prev, weather, index) => {
-        const paramIndex = index * 3;
-        return prev + `($${paramIndex+1}, $${paramIndex+2}, $${paramIndex+3})` + (++index == weathers.length ? "" : ",");
-    }, "INSERT INTO weather (weather_date, temperature, cloudeness) VALUES ");
+        const paramIndex = index * 5;
+        return prev + `($${paramIndex+1}, $${paramIndex+2}, $${paramIndex+3}, $${paramIndex+4}, $${paramIndex+5})` + (++index == weathers.length ? "" : ",");
+    }, "INSERT INTO weather (weather_date, temperature, cloudeness, humidity, area) VALUES ");
 }
 
 function buildValuesQuery (weathers) {
     return weathers.reduce((prev, weather) => {
-        return [...prev, new Date(), parseInt(weather.temperature), parseInt(weather.cloudeness)];
+        return [
+            ...prev,
+            new Date(),
+            parseInt(weather.temperature),
+            parseInt(weather.cloudeness),
+            parseInt(weather.humidity),
+            weather.name
+        ];
     }, []);
 }

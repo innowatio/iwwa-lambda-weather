@@ -46,12 +46,16 @@ describe("Save weather into DB", () => {
 
         const result = await db.rows("SELECT * from weather");
         expect(result).to.deep.equal([{
+            area: "London",
             cloudeness: 20,
+            humidity: 60,
             id: sequence.last_value - 1,
             temperature: 293,
             weather_date: new Date(),
             user_app_id: null
         }, {
+            area: "London",
+            humidity: 45,
             cloudeness: 89,
             id: sequence.last_value - 0,
             temperature: 223,
