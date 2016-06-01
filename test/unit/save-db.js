@@ -13,17 +13,17 @@ describe("Save weather into DB", () => {
 
     sinon.useFakeTimers();
     
-    // before(async () => {
-    //     await db.query({
-    //         text: "DELETE FROM weather"
-    //     });
-    // });
+    before(async () => {
+        await db.query({
+            text: "DELETE FROM weather"
+        });
+    });
 
-    // after(async () => {
-    //     await db.query({
-    //         text: "DELETE FROM weather"
-    //     });
-    // });
+    after(async () => {
+        await db.query({
+            text: "DELETE FROM weather"
+        });
+    });
 
     it("Save London weathers", async () => {
         const weather = [{

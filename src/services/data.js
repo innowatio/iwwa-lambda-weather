@@ -33,7 +33,7 @@ export const province = [
     },
     {
         "id": 6541999,
-        "name": "L'Aquila"
+        "name": "Aquila"
     },
     {
         "id": 3182164,
