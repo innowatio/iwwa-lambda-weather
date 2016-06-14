@@ -8,8 +8,23 @@
 
 Lambda function for weather infos.
 
-## Dev env
+- `OPEN_WEATHER_APP_ID`
+
+## Deployment
+
+This project deployment is automated with Lambdafile [`lambda-boilerplate`](https://github.com/lk-architecture/lambda-boilerplate/).
+
+### Configuration
 
 Since we are querying [OpenWeatherMap.org](http://openweathermap.org) you must have a registered AppID on the service and provide the required environment variables:
+The following environment variables are needed to configure the function:
 
 - `OPEN_WEATHER_APP_ID`
+- `KINESIS_STREAM`
+- `KINESIS_PRODUCER_ID`
+
+### Run test
+
+In order to run tests locally a [OpenWeatherMap.org](http://openweathermap.org) AppId and the above environment
+variables are needed.
+Just run `npm run test` command.
