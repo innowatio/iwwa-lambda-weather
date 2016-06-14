@@ -6,4 +6,10 @@
 
 # iwwa-lambda-weather
 
-Lambda function for weather infos
+Lambda function for weather infos.
+
+## Dev env
+
+Since we are querying [OpenWeatherMap.org](http://openweathermap.org) you must have a registered AppID on the service and provide the required environment variables:
+
+- `OPEN_WEATHER_APP_ID`
