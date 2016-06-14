@@ -1,19 +1,20 @@
 import {get} from "axios";
 import {sleep} from "sleep";
 
-const appId = "42e5c617ad96c244d404d726ad205211";
+import {OPEN_WEATHER_APP_ID} from "../config";
 
 export async function getWeather (location) {
 
-    const query = `http://api.openweathermap.org/data/2.5/weather?id=${location.id}&units=metric&appid=${appId}`;
+    const query = `http://api.openweathermap.org/data/2.5/weather?id=${location.id}&units=metric&appid=${OPEN_WEATHER_APP_ID}`;
 
     const response = await get(query);
     return {
         provincia: response.data.name,
-        id: response.data.id,
+        id: response.data.weather[0].id,
         temperature: response.data.main.temp,
         humidity: response.data.main.humidity,
-        cloudeness: response.data.clouds.all
+        cloudeness: response.data.clouds.all,
+        country: response.data.sys.country
     };
 }
 

@@ -4,7 +4,7 @@ import {getAllWeathers, getWeather} from "steps/get-weather";
 
 describe("Query api.openweathermap.org", () => {
 
-    it("GET Benevento London", async () => {
+    it("GET Cairns weather", async () => {
         const location = {
             "id": 2172797,
             "name": "London"
@@ -14,10 +14,10 @@ describe("Query api.openweathermap.org", () => {
         expectWeatherObject(result);
     }).timeout(10000);
 
-    it("GET Benevento & London weather", async () => {
+    it("GET Benevento & Cairns weather", async () => {
         const locations = [{
             "id": 2172797,
-            "name": "London"
+            "name": "Cairns"
         }, {
             "id": 6542123,
             "name": "Benevento"

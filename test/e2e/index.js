@@ -4,29 +4,37 @@ import sinonChai from "sinon-chai";
 
 chai.use(sinonChai);
 
+import {setInstance} from "services/dispatcher";
 import {province as data} from "services/data";
-import getDb from "services/db";
 import {handler} from "index";
 
-describe("Query api.openweathermap.org and save DB", () => {
+describe("Query api.openweathermap.org and dispatch events", () => {
 
-    it("GET Benevento London", async () => {
-        
-        const db = await getDb();
+    const context = {
+        succeed: spy()
+    };
 
-        const context = {
-            succeed: spy()
-        };
+    const dispatcher = {
+        dispatch: spy()
+    };
 
-        const province = data.splice(0, 5);
+    afterEach(() => {
+        context.succeed.reset();
+        dispatcher.dispatch.reset();
+    });
+
+    it("GET some weather infos and dispatch events", async () => {
+
+        setInstance(dispatcher.dispatch);
+
+        const province = data.splice(0, 3);
         await handler({
             province
         }, context);
-        
-        const result = await db.row("SELECT count(*) from weather");
 
-        expect(parseInt(result.count)).to.equal(5);
         expect(context.succeed).to.have.been.callCount(1);
+        expect(dispatcher.dispatch).to.have.been.callCount(3);
+
     }).timeout(10000);
 
 });

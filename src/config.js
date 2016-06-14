@@ -2,7 +2,4 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const DB_USER = process.env.DB_USER;
-export const DB_PASS = process.env.DB_PASS;
-export const DB_URL = process.env.DB_URL;
-export const DB_NAME = process.env.DB_NAME;
+export const OPEN_WEATHER_APP_ID = process.env.OPEN_WEATHER_APP_ID || "42e5c617ad96c244d404d726ad205211";

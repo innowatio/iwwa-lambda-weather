@@ -1,7 +1,7 @@
 import log from "./services/logger";
 
 import {getAllWeathers} from "./steps/get-weather";
-import {insertWeathers} from "./steps/save-db";
+import {dispatchEvents} from "./steps/dispatch-events";
 
 export default async function pipeline (event, context) {
 
@@ -14,7 +14,7 @@ export default async function pipeline (event, context) {
 
     const results = await getAllWeathers(event.province);
 
-    await insertWeathers(results);
+    dispatchEvents(results);
 
     context.succeed();
 }
