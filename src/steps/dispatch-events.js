@@ -1,13 +1,14 @@
 import moment from "moment";
+import {map} from "bluebird";
 
 import {dispatchEvent} from "../services/dispatcher";
 import log from "../services/logger";
 
-export function dispatchEvents(weathers) {
+export async function dispatchEvents(weathers) {
     const now = moment.utc().valueOf();
     const normalized = moment.utc(now - (now % (1000 * 60 * 60 * 2)));
 
-    weathers.forEach(weather => {
+    return await map(weathers, (weather) => {
         const event = {
             element: {
                 sensorId: `${weather.country}-${weather.provincia.toLowerCase()}`,

@@ -14,7 +14,7 @@ export default async function pipeline (event, context) {
 
     const results = await getAllWeathers(event.province);
 
-    dispatchEvents(results);
+    await dispatchEvents(results);
 
     context.succeed();
 }
