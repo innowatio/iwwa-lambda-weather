@@ -29,7 +29,7 @@ export function dispatchEvents(weathers) {
                 value: weather.id,
                 unitOfMeasurement: "id"
             }]
-        });
+        }, {});
     });
 }
 
