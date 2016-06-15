@@ -23,7 +23,7 @@ export function setInstance(obj) {
     dispatcherInstance = obj;
 }
 
-export function dispatchEvent(eventType, eventData, eventOptions) {
+export async function dispatchEvent(eventType, eventData, eventOptions) {
     const dispatch = getInstance();
-    dispatch(eventType, eventData, eventOptions);
+    await dispatch(eventType, eventData, eventOptions);
 }
