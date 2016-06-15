@@ -13,6 +13,7 @@ export async function dispatchEvents(weathers) {
             element: {
                 sensorId: `${weather.country}-${weather.provincia.toLowerCase()}`,
                 date: normalized.format(),
+                source: "reading",
                 measurements: [{
                     type: "weather-cloudeness",
                     value: weather.cloudeness,
