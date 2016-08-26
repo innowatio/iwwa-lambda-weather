@@ -1,5 +1,13 @@
 export const province = [
     {
+        "id": 6542126,
+        "name": "Ancona"
+    },
+    {
+        "id": 6541996,
+        "name": "Ragusa"
+    },
+    {
         "id": 3180991,
         "name": "Campobasso"
     },
@@ -318,10 +326,6 @@ export const province = [
     {
         "id": 6541866,
         "name": "Gorizia"
-    },
-    {
-        "id": 3178957,
-        "name": "Cesena"
     },
     {
         "id": 3173775,
